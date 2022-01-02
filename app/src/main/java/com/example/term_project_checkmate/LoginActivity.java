@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText mail;
     EditText password;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         mail = (EditText) findViewById(R.id.editTextTextEmailAddress);
         mAuth = FirebaseAuth.getInstance();
     }
+
     public void onClickLogin(View view) {
         String stringMail = mail.getText().toString();
         String stringPassword = password.getText().toString();
@@ -41,5 +43,15 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    public void onClickForget(View view) {
+        Intent forget = new Intent(LoginActivity.this, ForgetMyPassword.class);
+        startActivity(forget);
+    }
+    public void onClickDontHaveAccount(View view) {
+        Intent account = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(account);
     }
 }

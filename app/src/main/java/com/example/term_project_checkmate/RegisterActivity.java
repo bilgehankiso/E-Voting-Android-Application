@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("name").setValue(stringName);
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("surname").setValue(stringSurname);
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("email").setValue(stringEmail);
-                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("num").setValue(0);
+                          //  mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("num").setValue(0);
                             Toast.makeText(RegisterActivity.this, "User successfully created", Toast.LENGTH_SHORT).show();
                             Intent registerIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(registerIntent);
