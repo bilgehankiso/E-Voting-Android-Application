@@ -3,6 +3,7 @@ package com.example.term_project_checkmate;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +32,8 @@ public class ForgetMyPassword extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(ForgetMyPassword.this, "E-Mail sent", Toast.LENGTH_SHORT).show();
+                Intent intentt = new Intent(ForgetMyPassword.this, LoginActivity.class);
+                startActivity(intentt);
             }
         });
     }

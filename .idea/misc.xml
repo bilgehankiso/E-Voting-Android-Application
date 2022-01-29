@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_add_election.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_admin_page.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_forget_my_password.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_login.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_main.xml" value="0.2418478260869565" />
+        <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_main2.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Bilgisayar/AndroidStudioProjects/term-project-checkmate/app/src/main/res/layout/activity_register.xml" value="0.223731884057971" />
       </map>
     </option>
