@@ -1,9 +1,18 @@
 package com.example.term_project_checkmate;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +27,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    ArrayList<String> arr;
+    ArrayList<String> answer;
+    String question;
+    int choiceNum;
+    int choiceNum2;
+    ListView listView;
+    TextView quest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +40,64 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        arr = new ArrayList<>();
+        ArrayList<String> temp = new ArrayList<>();
+        quest = (TextView) findViewById(R.id.questView);
+        answer = new ArrayList<>();
+        choiceNum = 0;
+        choiceNum2 = 0;
+        listView = (ListView) findViewById(R.id.ListVieww);
         mDatabase.child("election").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 if (datasnapshot.exists()) {
                     for (DataSnapshot snapshot : datasnapshot.getChildren()) {
-                        arr.add(String.valueOf(snapshot.getValue()));
+                        temp.add(String.valueOf(snapshot.getValue()));
                     }
+                    answer.add(temp.get(0));
+                    answer.add(temp.get(1));
+                    choiceNum = Integer.parseInt(temp.get(3));
+                    choiceNum2 = Integer.parseInt(temp.get(2));
+                    question = temp.get(4);
+                    quest.setText(question);
+                    ArrayAdapter<String> adappter = new ArrayAdapter<String>
+                            (MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, answer);
+
+                    listView.setAdapter(adappter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            AlertDialog.Builder dialogWindow =
+                                    new AlertDialog.Builder(MainActivity.this);
+                            dialogWindow.setMessage(answer.get(position))
+                                    .setCancelable(false)
+                                    .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            if (which == 0) {
+                                                choiceNum++;
+                                                mDatabase.child("election").child("choiceNum").setValue(choiceNum);
+                                                Toast.makeText(MainActivity.this, "You are successfully voted", Toast.LENGTH_SHORT).show();
+                                                Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
+                                                startActivity(mainIntent);
+                                            } else if (which == 1) {
+                                                choiceNum2++;
+                                                mDatabase.child("election").child("choice2Num").setValue(choiceNum2);
+                                                Toast.makeText(MainActivity.this, "You are successfully voted", Toast.LENGTH_SHORT).show();
+                                                Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
+                                                startActivity(mainIntent);
+                                            } else {
+                                                Toast.makeText(MainActivity.this, "Something went wrong. Please try again", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            dialogWindow.create().show();
+                        }
+                    });
                 }
+
             }
 
             @Override
@@ -43,5 +106,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
