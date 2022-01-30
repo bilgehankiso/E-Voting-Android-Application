@@ -27,12 +27,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    ArrayList<String> answer;
-    String question;
-    int choiceNum;
-    int choiceNum2;
-    ListView listView;
-    TextView quest;
+    protected ArrayList<String> answer;
+    protected String question;
+    protected int choiceNum;
+    protected int choiceNum2;
+    protected ListView listView;
+    protected TextView quest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,18 +69,19 @@ public class MainActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             AlertDialog.Builder dialogWindow =
                                     new AlertDialog.Builder(MainActivity.this);
-                            dialogWindow.setMessage(answer.get(position))
+                            dialogWindow.setMessage("Choice is " + answer.get(position) + " are you sure to continue ?")
                                     .setCancelable(false)
                                     .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            if (which == 0) {
+                                            System.out.println(which);
+                                            if (position == 0) {
                                                 choiceNum++;
                                                 mDatabase.child("election").child("choiceNum").setValue(choiceNum);
                                                 Toast.makeText(MainActivity.this, "You are successfully voted", Toast.LENGTH_SHORT).show();
                                                 Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
                                                 startActivity(mainIntent);
-                                            } else if (which == 1) {
+                                            } else if (position == 1) {
                                                 choiceNum2++;
                                                 mDatabase.child("election").child("choice2Num").setValue(choiceNum2);
                                                 Toast.makeText(MainActivity.this, "You are successfully voted", Toast.LENGTH_SHORT).show();
@@ -88,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                                                 startActivity(mainIntent);
                                             } else {
                                                 Toast.makeText(MainActivity.this, "Something went wrong. Please try again", Toast.LENGTH_SHORT).show();
-
                                             }
                                             dialog.dismiss();
                                         }
@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-
             }
 
             @Override

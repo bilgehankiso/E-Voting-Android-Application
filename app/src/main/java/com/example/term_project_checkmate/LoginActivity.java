@@ -15,9 +15,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText mail;
-    EditText password;
-    FirebaseAuth mAuth;
+    protected EditText mail;
+    protected EditText password;
+    protected FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

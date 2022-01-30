@@ -2,6 +2,7 @@ package com.example.term_project_checkmate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,9 +14,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AdminPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    EditText question;
-    EditText choice;
-    EditText choice2;
+    protected EditText question;
+    protected EditText choice;
+    protected EditText choice2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,9 @@ public class AdminPage extends AppCompatActivity {
     }
 
     public void onClickAddElection(View view) {
-        String strQuestion=question.getText().toString();
-        String strChoice=choice.getText().toString();
-        String strChoice2=choice2.getText().toString();
+        String strQuestion = question.getText().toString();
+        String strChoice = choice.getText().toString();
+        String strChoice2 = choice2.getText().toString();
 
         mDatabase.child("election").child("question").setValue(strQuestion);
         mDatabase.child("election").child("choice").setValue(strChoice);
@@ -39,5 +40,10 @@ public class AdminPage extends AppCompatActivity {
         mDatabase.child("election").child("choiceNum").setValue(0);
         mDatabase.child("election").child("choice2Num").setValue(0);
 
+    }
+
+    public void onClickCheckResults(View view) {
+        Intent intent= new Intent(AdminPage.this,CheckResults.class);
+        startActivity(intent);
     }
 }
