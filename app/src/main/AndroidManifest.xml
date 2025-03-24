@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.term_project_checkmate">
+    package="com.example.e_voting">
 
     <application
         android:allowBackup="true"
@@ -10,10 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Termprojectcheckmate">
         <activity
-            android:name=".CheckResults"
+            android:name="com.example.e_voting.CheckResults"
             android:exported="false" />
         <activity
-            android:name=".AdminPage"
+            android:name="com.example.e_voting.AdminPage"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name="com.example.e_voting.ForgetMyPassword"
+            android:exported="false" />
+        <activity
+            android:name="com.example.e_voting.RegisterActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name="com.example.e_voting.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,16 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ForgetMyPassword"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".MainActivity"
+            android:name="com.example.e_voting.MainActivity"
             android:exported="true">
 
         </activity>

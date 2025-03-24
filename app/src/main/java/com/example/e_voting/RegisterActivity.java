@@ -1,4 +1,4 @@
-package com.example.term_project_checkmate;
+package com.example.e_voting;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.example.term_project_checkmate;
+package com.example.e_voting;
 
 import org.junit.Test;
 

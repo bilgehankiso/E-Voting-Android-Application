@@ -1,4 +1,4 @@
-package com.example.term_project_checkmate;
+package com.example.e_voting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +40,9 @@ public class AdminPage extends AppCompatActivity {
         mDatabase.child("election").child("choice2").setValue(strChoice2);
         mDatabase.child("election").child("choiceNum").setValue(0);
         mDatabase.child("election").child("choice2Num").setValue(0);
+        Intent intent= new Intent(AdminPage.this,LoginActivity.class);
+        Toast.makeText(AdminPage.this, "Election successfully added", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
 
     }
 
