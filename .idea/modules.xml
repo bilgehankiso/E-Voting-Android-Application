@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/term-project-checkmate.iml" filepath="$PROJECT_DIR$/.idea/modules/term-project-checkmate.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/term-project-checkmate.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/e-voting-application.iml" filepath="$PROJECT_DIR$/.idea/modules/e-voting-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/e-voting-application.app.unitTest.iml" />
     </modules>
   </component>
 </project>
