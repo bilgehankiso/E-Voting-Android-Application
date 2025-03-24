@@ -7,5 +7,5 @@ dependencyResolutionManagement {
         maven {url 'https://jitpack.io'}
     }
 }
-rootProject.name = "term-project-checkmate"
+rootProject.name = "e-voting-application"
 include ':app'
